@@ -14,6 +14,7 @@ public class Main {
         acc1.withdraw(200);
         acc1.deposit(-5);
         System.out.println("Final balance Ana: " + acc1.getBalance());
+        acc1.showHistory();
 
         acc2.withdraw(50);
         acc2.deposit(20);
