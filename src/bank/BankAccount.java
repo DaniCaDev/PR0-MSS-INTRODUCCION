@@ -1,10 +1,19 @@
 package bank;
 import java.util.ArrayList;
 
+/**
+ * Clase que representa una cuenta bancaria.
+ * 
+ * ENCAPSULACIÓN: balance es PRIVATE porque:
+ * 1. Evita que se modifique directamente desde fuera (account.balance = 9999)
+ * 2. Obliga a usar deposit() y withdraw() que tienen VALIDACIONES
+ * 3. Mantiene el estado de la cuenta siempre coherente y válido
+ */
 public class BankAccount {
 
     private String accountNumber;
     private String ownerName;
+    // PRIVATE: solo se puede modificar mediante deposit() y withdraw()
     private double balance;
     private ArrayList<String> history;
 
@@ -37,14 +46,15 @@ public class BankAccount {
         System.out.println("Withdrawn " + amount + ". New balance: " + balance);
     }
 
+    // Solo lectura: no hay setBalance(), el saldo solo cambia con operaciones válidas
     public double getBalance() {
         return balance;
     }
 
     public void showHistory() {
         System.out.println("=== Operations History ===");
-        for (String someoperations : history) {
-            System.out.println(someoperations);
+        for (String operation : history) {
+            System.out.println(operation);
         }
     }
 
