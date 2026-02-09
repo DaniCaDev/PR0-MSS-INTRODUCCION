@@ -16,7 +16,7 @@ public class BankAccount {
         this.history = new ArrayList<>();
     }
 
-    public void deposit(double amount) throws InsufficientFundsException {
+    public void deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Deposit amount must be greater than 0");
         }
@@ -31,7 +31,6 @@ public class BankAccount {
         }
         if (amount > balance) {
             throw new InsufficientFundsException("Insufficient funds. Current balance: " + balance);
-            return;
         }
         balance -= amount;
         history.add("Withdrawn " + amount + ". New balance: " + balance);
@@ -44,7 +43,7 @@ public class BankAccount {
 
     public void showHistory() {
         System.out.println("=== Operations History ===");
-        for (String someoperations : historial) {
+        for (String someoperations : history) {
             System.out.println(someoperations);
         }
     }
